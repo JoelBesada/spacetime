@@ -272,9 +272,3 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(disposable);
 }
 
-export function deactivate() {
-		Object.keys(workspaceEvents).forEach(name => {
-			workspaceEvents[name].push({type: 'closed', timestamp: Date.now()}); 
-		});
-		console.log('deactivate', JSON.stringify(workspaceEvents, null, 2));
-}

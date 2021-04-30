@@ -27,7 +27,11 @@ export default (document: any, window: any, Chart: any) => {
     const hours = Math.floor(time / 60 / 60);
     const minutes = Math.floor((time - hours * 60 * 60) / 60); 
     const seconds = time % 60;
-    return [hours, minutes, seconds].map(n => n.toString().padStart(2, '0')).join(':');
+    const minutesString = `${minutes} minute${minutes > 1 ? 's' : ''}`;
+    if (time < 60) {return '< 1 minute';};
+    if (hours < 1) {return minutesString;}
+    return `${hours} hour${hours > 1 ? 's' : ''}${minutes ? `, ${minutesString}`: ''}`;
+    // return [hours, minutes, seconds].map(n => n.toString().padStart(2, '0')).join(':');
   };
 
   let currentChart: any;
@@ -103,7 +107,8 @@ export default (document: any, window: any, Chart: any) => {
             stacked: true,
             ticks: {
               callback: (value: number) => {
-                return formatTime(value);
+                if (!value) {return null;};
+                return formatTime(Math.floor(value / 60 / 60) * 60 * 60);
               }
             }
           }

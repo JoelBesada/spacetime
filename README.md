@@ -1,5 +1,8 @@
-# Spacetime - Automatic workspace time tracking
+![Spacetime Logo](https://raw.githubusercontent.com/JoelBesada/spacetime/master/assets/Logo.png)
+# Spacetime - Automatic Workspace Time Tracking
 Spacetime is a VSCode extension that automatically tracks time spent in different workspaces (projects) and presents your daily activity in a nice, interactive chart. 
+
+![Spacetime Screenshot](https://raw.githubusercontent.com/JoelBesada/spacetime/master/assets/Screenshot.png)
 
 ## Features
 

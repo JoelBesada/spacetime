@@ -2,6 +2,9 @@
   "name": "spacetime",
 	"displayName": "Spacetime - Automatic Workspace Time Tracking",
 	"publisher": "NewMeta",
+	"repository": {
+		"url": "https://github.com/JoelBesada/spacetime"
+	},
 	"description": "Automatically track time spent in each VSCode workspace.",
 	"version": "1.0.0",
 	"engines": {

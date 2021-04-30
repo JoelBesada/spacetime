@@ -213,6 +213,10 @@ export function activate(context: vscode.ExtensionContext) {
 						margin-right: 0.25em;
 						vertical-align: middle;
 					}
+
+					.totals-section {
+						padding-bottom: 100px;
+					}
 				</style>
 		</head>
 		<body>

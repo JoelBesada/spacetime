@@ -20,7 +20,17 @@
 				"command": "spacetime.viewStats",
 				"title": "Spacetime: View Stats"
 			}
-		]
+		],
+		"configuration": {
+			"title": "Spacetime",
+			"properties": {
+				"spacetime.maxIdleMinutes": {
+					"type": "number",
+					"default": 15,
+					"description": "Spacetime tracks work activity by looking at time elapsed between file save events within each workspace. This setting defines the maximum number of minutes that spacetime considers as active work time prior to a new save event occuring."
+				}
+			}
+    }
 	},
 	"scripts": {
 		"vscode:prepublish": "yarn run compile",

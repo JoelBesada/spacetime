@@ -29,6 +29,7 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 	vscode.workspace.onDidSaveTextDocument((document) => {
+		const maxIdleTimeSeconds = vscode.workspace.getConfiguration('spacetime').maxIdleMinutes * 60 || MAX_IDLE_TIME_SECONDS;
 		if (document.uri.scheme === "file") {
 			const savedWorkspace = vscode.workspace.getWorkspaceFolder(document.uri);
 			if (savedWorkspace) {
@@ -36,9 +37,8 @@ export function activate(context: vscode.ExtensionContext) {
 				workspaceEvents[name] = workspaceEvents[name] || [];
 				const prevEvent = workspaceEvents[name][workspaceEvents[name].length - 1];
 				workspaceEvents[name].push({timestamp: Date.now(), type: 'saved'});
-				console.log('saved', name);
 				if (prevEvent) {
-					const workTimeSeconds = Math.min(MAX_IDLE_TIME_SECONDS, (Date.now() - prevEvent.timestamp) / 1000);
+					const workTimeSeconds = Math.min(maxIdleTimeSeconds, (Date.now() - prevEvent.timestamp) / 1000);
 					const workspaceTimes = context.globalState.get<WorkspaceTimes>(WORK_SPACE_TIMES_STORAGE_KEY, {});
 					const date = new Date().toISOString().split('T')[0];
 					workspaceTimes[name] = workspaceTimes[name] || {};

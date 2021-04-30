@@ -262,11 +262,6 @@ export function activate(context: vscode.ExtensionContext) {
 			</script>
 		</body>
 		</html>`;
-		// const workspaceTimes = context.globalState.get<WorkspaceTimes>(WORK_SPACE_TIMES_STORAGE_KEY, {});
-
-		// vscode.window.showInformationMessage(Object.keys(workspaceTimes).map((workspaceName) => {
-		// 	return [`=== ${workspaceName} ===`, ...(Object.keys(workspaceTimes[workspaceName]) || []).map((date) => `${date}: ${workspaceTimes[workspaceName][date]}s`)].join('\n');
-		// }).join('\n'));
 	});
 
 	context.subscriptions.push(disposable);

@@ -1,7 +1,7 @@
 {
   "name": "spacetime",
 	"displayName": "Spacetime - Automatic Workspace Time Tracking",
-	"publisher": "New Meta",
+	"publisher": "NewMeta",
 	"description": "Automatically track time spent in each VSCode workspace.",
 	"version": "1.0.0",
 	"engines": {

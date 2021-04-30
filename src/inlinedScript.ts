@@ -31,7 +31,6 @@ export default (document: any, window: any, Chart: any) => {
     if (time < 60) {return '< 1 minute';};
     if (hours < 1) {return minutesString;}
     return `${hours} hour${hours > 1 ? 's' : ''}${minutes ? `, ${minutesString}`: ''}`;
-    // return [hours, minutes, seconds].map(n => n.toString().padStart(2, '0')).join(':');
   };
 
   let currentChart: any;

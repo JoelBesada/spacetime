@@ -91,6 +91,8 @@ export function activate(context: vscode.ExtensionContext) {
 
 					select {
 						appearance: none;
+						padding: 0.7em 0.5em;
+						min-width: 80px;
 					}
 
 					.select-wrapper {
@@ -110,7 +112,6 @@ export function activate(context: vscode.ExtensionContext) {
 						clip-path: polygon(100% 0%, 0 0%, 50% 100%);
 					}
 
-
 					input[type="date"]::-webkit-calendar-picker-indicator {
 						filter: invert(1);
 					}
@@ -127,28 +128,20 @@ export function activate(context: vscode.ExtensionContext) {
 						border: 1px solid white;
 					}
 
+					.heading {
+						display: flex;
+						flex-wrap: wrap;
+						justify-content: space-between;
+						align-items: center;
+						margin: 20px 0;
+					}
+
 					.date-inputs input {
             margin: 0 0.25em;
 					}
 
-					.group-input {
-						display: flex;
-						padding: 0.75em 0;
-						align-items: center;
-						justify-content: flex-end;
-					}
-
-					.group-input select {
-						margin-left: 0.5em;
-						margin-right: 0.25em;
-						min-width: 80px;
-					}
-
-					.heading {
-						display: flex;
-						justify-content: space-between;
-						align-items: fled-start;
-						margin: 20px 0;
+					.input-container {
+						padding: 1em 0.5em;
 					}
 
 					.heading h1 {
@@ -228,21 +221,19 @@ export function activate(context: vscode.ExtensionContext) {
 					<img src="${logoURI}" />
 					<h1>Spacetime Stats</h1>
 				</div>	
-				<div>
-				<div class="date-inputs">
-					From
-					<input type="date" id="start" name="start" value=${sevenDaysAgo} max=${today}>
-					to
-					<input type="date" id="end" name="end" value=${today} max=${today}>
-				</div>
-				<div class="group-input">
-					Group <div class="select-wrapper"><select id="group">
-						<option value="daily" selected>Daily</option>
-						<option value="weekly">Weekly</option>
-						<option value="monthly">Monthly</option>
-						<option value="yearly">Yearly</option>
-					</select></div>
-				</div>
+				<div class="input-container">
+					<div class="date-inputs">
+						From
+						<input type="date" id="start" name="start" value=${sevenDaysAgo} max=${today}>
+						to
+						<input type="date" id="end" name="end" value=${today} max=${today}>
+						<div class="select-wrapper"><select id="group">
+							<option value="daily" selected>Daily</option>
+							<option value="weekly">Weekly</option>
+							<option value="monthly">Monthly</option>
+							<option value="yearly">Yearly</option>
+						</select></div>
+					</div>
 				</div>
 		  </div>
       <section class="chart-section">

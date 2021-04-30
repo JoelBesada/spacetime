@@ -112,6 +112,9 @@ export default (document: any, window: any, Chart: any) => {
           tooltip: {
             callbacks: {
               label: (tooltipItem: any) =>{
+                if (!tooltipItem.raw) {
+                  return null;
+                };
                 return `${tooltipItem.dataset.label}: ${formatTime(tooltipItem.raw)}`;
               }
             }
